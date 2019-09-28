@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		210A14E1233E49CB002C3DF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A14E0233E49CB002C3DF4 /* AppDelegate.swift */; };
 		210A14E3233E49CB002C3DF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A14E2233E49CB002C3DF4 /* SceneDelegate.swift */; };
-		210A14E5233E49CB002C3DF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A14E4233E49CB002C3DF4 /* ViewController.swift */; };
 		210A14E8233E49CB002C3DF4 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 210A14E6233E49CB002C3DF4 /* Contact.storyboard */; };
 		210A14EB233E49CB002C3DF4 /* GojekTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 210A14E9233E49CB002C3DF4 /* GojekTest.xcdatamodeld */; };
 		210A14ED233E49CB002C3DF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 210A14EC233E49CB002C3DF4 /* Assets.xcassets */; };
@@ -23,16 +22,28 @@
 		210A150B233E4E50002C3DF4 /* ContactListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A1509233E4E50002C3DF4 /* ContactListTableViewCell.swift */; };
 		210A150C233E4E50002C3DF4 /* ContactListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 210A150A233E4E50002C3DF4 /* ContactListTableViewCell.xib */; };
 		210A150F233E4EF5002C3DF4 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A150E233E4EF5002C3DF4 /* ImageViewExtension.swift */; };
-		210A1512233E5DD6002C3DF4 /* ContactListViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A1511233E5DD6002C3DF4 /* ContactListViewController+TableView.swift */; };
 		210A1515233E5EEE002C3DF4 /* ContactListServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A1514233E5EEE002C3DF4 /* ContactListServiceManager.swift */; };
 		210A1517233E5F03002C3DF4 /* ContactDetailServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A1516233E5F03002C3DF4 /* ContactDetailServiceManager.swift */; };
+		21246541233F603C0082B58F /* ContactStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21246540233F603C0082B58F /* ContactStructs.swift */; };
+		21246543233F61E00082B58F /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21246542233F61E00082B58F /* EditContactViewController.swift */; };
+		21246545233F62200082B58F /* EditContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21246544233F62200082B58F /* EditContactView.swift */; };
+		21246547233F625B0082B58F /* EditContactServiceManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21246546233F625B0082B58F /* EditContactServiceManger.swift */; };
+		2124654A233F6B760082B58F /* ContactActionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21246548233F6B760082B58F /* ContactActionsTableViewCell.swift */; };
+		2124654B233F6B760082B58F /* ContactActionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21246549233F6B760082B58F /* ContactActionsTableViewCell.xib */; };
+		2124654E233F6C190082B58F /* ContactImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124654C233F6C190082B58F /* ContactImageTableViewCell.swift */; };
+		2124654F233F6C190082B58F /* ContactImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2124654D233F6C190082B58F /* ContactImageTableViewCell.xib */; };
+		21246552233F6C300082B58F /* ContactDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21246550233F6C300082B58F /* ContactDescriptionTableViewCell.swift */; };
+		21246553233F6C300082B58F /* ContactDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21246551233F6C300082B58F /* ContactDescriptionTableViewCell.xib */; };
+		21246556233F77E20082B58F /* EditContactImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21246554233F77E20082B58F /* EditContactImageTableViewCell.swift */; };
+		21246557233F77E20082B58F /* EditContactImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21246555233F77E20082B58F /* EditContactImageTableViewCell.xib */; };
+		2124655A233F7E2A0082B58F /* ContactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21246559233F7E2A0082B58F /* ContactDataModel.swift */; };
+		2124655C233FBBD10082B58F /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124655B233FBBD10082B58F /* TableViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		210A14DD233E49CB002C3DF4 /* GojekTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GojekTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		210A14E0233E49CB002C3DF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		210A14E2233E49CB002C3DF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		210A14E4233E49CB002C3DF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		210A14E7233E49CB002C3DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Contact.storyboard; sourceTree = "<group>"; };
 		210A14EA233E49CB002C3DF4 /* GojekTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GojekTest.xcdatamodel; sourceTree = "<group>"; };
 		210A14EC233E49CB002C3DF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,9 +58,22 @@
 		210A1509233E4E50002C3DF4 /* ContactListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListTableViewCell.swift; sourceTree = "<group>"; };
 		210A150A233E4E50002C3DF4 /* ContactListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactListTableViewCell.xib; sourceTree = "<group>"; };
 		210A150E233E4EF5002C3DF4 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
-		210A1511233E5DD6002C3DF4 /* ContactListViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactListViewController+TableView.swift"; sourceTree = "<group>"; };
 		210A1514233E5EEE002C3DF4 /* ContactListServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListServiceManager.swift; sourceTree = "<group>"; };
 		210A1516233E5F03002C3DF4 /* ContactDetailServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailServiceManager.swift; sourceTree = "<group>"; };
+		21246540233F603C0082B58F /* ContactStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactStructs.swift; sourceTree = "<group>"; };
+		21246542233F61E00082B58F /* EditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
+		21246544233F62200082B58F /* EditContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactView.swift; sourceTree = "<group>"; };
+		21246546233F625B0082B58F /* EditContactServiceManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactServiceManger.swift; sourceTree = "<group>"; };
+		21246548233F6B760082B58F /* ContactActionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactActionsTableViewCell.swift; sourceTree = "<group>"; };
+		21246549233F6B760082B58F /* ContactActionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactActionsTableViewCell.xib; sourceTree = "<group>"; };
+		2124654C233F6C190082B58F /* ContactImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactImageTableViewCell.swift; sourceTree = "<group>"; };
+		2124654D233F6C190082B58F /* ContactImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactImageTableViewCell.xib; sourceTree = "<group>"; };
+		21246550233F6C300082B58F /* ContactDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		21246551233F6C300082B58F /* ContactDescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactDescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		21246554233F77E20082B58F /* EditContactImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactImageTableViewCell.swift; sourceTree = "<group>"; };
+		21246555233F77E20082B58F /* EditContactImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditContactImageTableViewCell.xib; sourceTree = "<group>"; };
+		21246559233F7E2A0082B58F /* ContactDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataModel.swift; sourceTree = "<group>"; };
+		2124655B233FBBD10082B58F /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +114,6 @@
 				210A14FB233E4B2F002C3DF4 /* Controller */,
 				210A14E0233E49CB002C3DF4 /* AppDelegate.swift */,
 				210A14E2233E49CB002C3DF4 /* SceneDelegate.swift */,
-				210A14E4233E49CB002C3DF4 /* ViewController.swift */,
 				210A14EC233E49CB002C3DF4 /* Assets.xcassets */,
 				210A14EE233E49CB002C3DF4 /* LaunchScreen.storyboard */,
 				210A14F1233E49CB002C3DF4 /* Info.plist */,
@@ -103,8 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				210A14F7233E4A78002C3DF4 /* ContactListViewController.swift */,
-				210A1511233E5DD6002C3DF4 /* ContactListViewController+TableView.swift */,
 				210A14F9233E4A92002C3DF4 /* ContactDetailViewController.swift */,
+				21246542233F61E00082B58F /* EditContactViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -112,6 +135,8 @@
 		210A14FC233E4B3E002C3DF4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				21246558233F7D950082B58F /* DataModel */,
+				2124653F233F601F0082B58F /* Strucutres */,
 				210A1513233E5E96002C3DF4 /* ControllerServiceManagers */,
 			);
 			path = Model;
@@ -122,7 +147,7 @@
 			children = (
 				210A1519233E5FEA002C3DF4 /* Storyboards */,
 				210A1518233E5FC1002C3DF4 /* CustomViews */,
-				210A1508233E4E1D002C3DF4 /* CustomTableViewCell */,
+				210A1508233E4E1D002C3DF4 /* TableViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -143,19 +168,28 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		210A1508233E4E1D002C3DF4 /* CustomTableViewCell */ = {
+		210A1508233E4E1D002C3DF4 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				210A1509233E4E50002C3DF4 /* ContactListTableViewCell.swift */,
 				210A150A233E4E50002C3DF4 /* ContactListTableViewCell.xib */,
+				21246548233F6B760082B58F /* ContactActionsTableViewCell.swift */,
+				21246549233F6B760082B58F /* ContactActionsTableViewCell.xib */,
+				2124654C233F6C190082B58F /* ContactImageTableViewCell.swift */,
+				2124654D233F6C190082B58F /* ContactImageTableViewCell.xib */,
+				21246554233F77E20082B58F /* EditContactImageTableViewCell.swift */,
+				21246555233F77E20082B58F /* EditContactImageTableViewCell.xib */,
+				21246550233F6C300082B58F /* ContactDescriptionTableViewCell.swift */,
+				21246551233F6C300082B58F /* ContactDescriptionTableViewCell.xib */,
 			);
-			path = CustomTableViewCell;
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		210A1510233E527C002C3DF4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				210A150E233E4EF5002C3DF4 /* ImageViewExtension.swift */,
+				2124655B233FBBD10082B58F /* TableViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -165,6 +199,7 @@
 			children = (
 				210A1514233E5EEE002C3DF4 /* ContactListServiceManager.swift */,
 				210A1516233E5F03002C3DF4 /* ContactDetailServiceManager.swift */,
+				21246546233F625B0082B58F /* EditContactServiceManger.swift */,
 			);
 			path = ControllerServiceManagers;
 			sourceTree = "<group>";
@@ -174,6 +209,7 @@
 			children = (
 				210A14FE233E4B83002C3DF4 /* ContactListView.swift */,
 				210A1500233E4B9F002C3DF4 /* ContactDetailView.swift */,
+				21246544233F62200082B58F /* EditContactView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -184,6 +220,22 @@
 				210A14E6233E49CB002C3DF4 /* Contact.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		2124653F233F601F0082B58F /* Strucutres */ = {
+			isa = PBXGroup;
+			children = (
+				21246540233F603C0082B58F /* ContactStructs.swift */,
+			);
+			path = Strucutres;
+			sourceTree = "<group>";
+		};
+		21246558233F7D950082B58F /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				21246559233F7E2A0082B58F /* ContactDataModel.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,8 +297,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				210A150C233E4E50002C3DF4 /* ContactListTableViewCell.xib in Resources */,
+				21246553233F6C300082B58F /* ContactDescriptionTableViewCell.xib in Resources */,
 				210A14F0233E49CB002C3DF4 /* LaunchScreen.storyboard in Resources */,
 				210A14ED233E49CB002C3DF4 /* Assets.xcassets in Resources */,
+				2124654B233F6B760082B58F /* ContactActionsTableViewCell.xib in Resources */,
+				2124654F233F6C190082B58F /* ContactImageTableViewCell.xib in Resources */,
+				21246557233F77E20082B58F /* EditContactImageTableViewCell.xib in Resources */,
 				210A14E8233E49CB002C3DF4 /* Contact.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,19 +315,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				210A1504233E4C73002C3DF4 /* NetworkManager.swift in Sources */,
-				210A14E5233E49CB002C3DF4 /* ViewController.swift in Sources */,
 				210A14FF233E4B83002C3DF4 /* ContactListView.swift in Sources */,
 				210A14F8233E4A78002C3DF4 /* ContactListViewController.swift in Sources */,
 				210A14E1233E49CB002C3DF4 /* AppDelegate.swift in Sources */,
-				210A1512233E5DD6002C3DF4 /* ContactListViewController+TableView.swift in Sources */,
+				21246541233F603C0082B58F /* ContactStructs.swift in Sources */,
+				21246543233F61E00082B58F /* EditContactViewController.swift in Sources */,
 				210A1501233E4B9F002C3DF4 /* ContactDetailView.swift in Sources */,
 				210A14EB233E49CB002C3DF4 /* GojekTest.xcdatamodeld in Sources */,
 				210A1515233E5EEE002C3DF4 /* ContactListServiceManager.swift in Sources */,
+				2124655C233FBBD10082B58F /* TableViewExtension.swift in Sources */,
+				21246545233F62200082B58F /* EditContactView.swift in Sources */,
 				210A1517233E5F03002C3DF4 /* ContactDetailServiceManager.swift in Sources */,
 				210A150B233E4E50002C3DF4 /* ContactListTableViewCell.swift in Sources */,
 				210A1507233E4CD6002C3DF4 /* Helper.swift in Sources */,
+				21246552233F6C300082B58F /* ContactDescriptionTableViewCell.swift in Sources */,
 				210A14FA233E4A92002C3DF4 /* ContactDetailViewController.swift in Sources */,
 				210A150F233E4EF5002C3DF4 /* ImageViewExtension.swift in Sources */,
+				2124655A233F7E2A0082B58F /* ContactDataModel.swift in Sources */,
+				2124654E233F6C190082B58F /* ContactImageTableViewCell.swift in Sources */,
+				21246547233F625B0082B58F /* EditContactServiceManger.swift in Sources */,
+				2124654A233F6B760082B58F /* ContactActionsTableViewCell.swift in Sources */,
+				21246556233F77E20082B58F /* EditContactImageTableViewCell.swift in Sources */,
 				210A14E3233E49CB002C3DF4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

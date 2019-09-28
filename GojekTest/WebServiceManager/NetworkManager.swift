@@ -18,10 +18,13 @@ class NetworkManager
     
     enum JSONError: String, Error{
         case NoData = "No data"
+        case ConversionFailed = "Unable to parse json"
     }
     enum ReqestType:String{
         case post = "POST"
         case get = "GET"
+        case put = "PUT"
+        case delete = "DELETE"
     }
     
     func callData(requestType: ReqestType ,jsonInputData: Data?, path:String, completion: @escaping (_ result: Data) -> Void){
@@ -39,6 +42,20 @@ class NetworkManager
                 request.httpBody = jsonInputData!
             }
             URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+                
+                guard let dataResponse = data,
+                    error == nil else {
+                        print(error?.localizedDescription ?? "Response Error")
+                        return }
+                do{
+                    //here dataResponse received from a network request
+                    let jsonResponse = try JSONSerialization.jsonObject(with:
+                        dataResponse, options: [])
+                    print(jsonResponse) //Response result
+                } catch let parsingError {
+                    print("Error", parsingError)
+                }
+            
                 do{
                     guard let data = data else{
                         throw JSONError.NoData

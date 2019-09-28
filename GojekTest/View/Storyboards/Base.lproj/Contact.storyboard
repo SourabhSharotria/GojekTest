@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HUy-ry-Vfl">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -11,31 +11,110 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ContactListViewController" customModule="GojekTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="ContactListView" customModule="GojekTest" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Csm-DQ-LH2">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Csm-DQ-LH2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="94h-eQ-y2S"/>
+                            <constraint firstItem="Csm-DQ-LH2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="P2z-yr-g0p"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Csm-DQ-LH2" secondAttribute="bottom" id="anu-S4-2zh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Csm-DQ-LH2" secondAttribute="trailing" id="jK3-gn-s7D"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outlet property="contactListTableView" destination="Csm-DQ-LH2" id="MI7-55-Gau"/>
+                        </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="WTd-4l-FjS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="116"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="115.84821428571428"/>
         </scene>
         <!--Contact Detail View Controller-->
         <scene sceneID="9jJ-yv-mXl">
             <objects>
-                <viewController id="gpe-1y-xQ8" customClass="ContactDetailViewController" customModule="GojekTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lKj-f1-tCu">
+                <viewController storyboardIdentifier="ContactDetailViewController" id="gpe-1y-xQ8" customClass="ContactDetailViewController" customModule="GojekTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lKj-f1-tCu" customClass="ContactDetailView" customModule="GojekTest" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KJC-EF-5cV">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KJC-EF-5cV" firstAttribute="top" secondItem="n2Z-DN-z2H" secondAttribute="top" id="Prc-h2-2vJ"/>
+                            <constraint firstItem="n2Z-DN-z2H" firstAttribute="trailing" secondItem="KJC-EF-5cV" secondAttribute="trailing" id="bSj-sM-zfS"/>
+                            <constraint firstItem="KJC-EF-5cV" firstAttribute="leading" secondItem="n2Z-DN-z2H" secondAttribute="leading" id="cTZ-D9-zPw"/>
+                            <constraint firstItem="n2Z-DN-z2H" firstAttribute="bottom" secondItem="KJC-EF-5cV" secondAttribute="bottom" id="miW-fm-ud5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="n2Z-DN-z2H"/>
+                        <connections>
+                            <outlet property="contactDetailTableView" destination="KJC-EF-5cV" id="rC9-Sk-Vgn"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ant-kE-Byq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="791" y="116"/>
+            <point key="canvasLocation" x="1700.0000000000002" y="115.84821428571428"/>
+        </scene>
+        <!--Edit Contact View Controller-->
+        <scene sceneID="uIm-x0-myP">
+            <objects>
+                <viewController storyboardIdentifier="EditContactViewController" id="R5U-YE-Jg8" customClass="EditContactViewController" customModule="GojekTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o55-kH-Xj1" customClass="EditContactView" customModule="GojekTest" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rWo-Xb-zid">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="rWo-Xb-zid" firstAttribute="leading" secondItem="t4C-eS-Y1G" secondAttribute="leading" id="3Mk-ZH-Qwa"/>
+                            <constraint firstItem="t4C-eS-Y1G" firstAttribute="trailing" secondItem="rWo-Xb-zid" secondAttribute="trailing" id="otZ-0z-sRO"/>
+                            <constraint firstItem="rWo-Xb-zid" firstAttribute="top" secondItem="t4C-eS-Y1G" secondAttribute="top" id="qI9-3M-ZdM"/>
+                            <constraint firstItem="t4C-eS-Y1G" firstAttribute="bottom" secondItem="rWo-Xb-zid" secondAttribute="bottom" id="zXM-50-Tdy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="t4C-eS-Y1G"/>
+                        <connections>
+                            <outlet property="editContactTableView" destination="rWo-Xb-zid" id="UlG-z0-Lxd"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zu7-Vd-Z8r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2342.0289855072465" y="115.84821428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nQb-yK-Gmt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HUy-ry-Vfl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e18-29-8Hu">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ZP0-sB-5QF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bOk-tO-pHo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
         </scene>
     </scenes>
 </document>

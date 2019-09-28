@@ -13,10 +13,14 @@ class Helper{
     static func showAlert(title:String, subtitle:String){
         DispatchQueue.main.async(execute: {
             
-            let alert = UIAlertController(title: title, message: subtitle, preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil))
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window!.rootViewController?.present(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: title, message: subtitle, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil))
+            
+            guard let currentWindowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+                return
+            }
+            
+            currentWindowScene.windows.last!.rootViewController?.present(alert, animated: true, completion: nil)
         })
     }
 }

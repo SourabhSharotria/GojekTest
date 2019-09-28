@@ -10,13 +10,25 @@ import UIKit
 
 class ContactListViewController: UIViewController {
 
+    private var contactsListView : ContactListView?
+    private let serviceManager = ContactListServiceManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        serviceManager.delegate = self
+        contactsListView = self.view as? ContactListView
+        contactsListView?.delegate = self
+        self.getContactList()
+        
         // Do any additional setup after loading the view.
     }
     
 
+    private func getContactList() {
+        serviceManager.getContactList()
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -27,4 +39,26 @@ class ContactListViewController: UIViewController {
     }
     */
 
+}
+extension ContactListViewController:ContactListServiceManagerDelegate{
+    func contactListServiceManager(serviceManger: ContactListServiceManager, didFetchingContacts data: [ContactsModel]?){
+        self.contactsListView?.updateSections(contacts: data)
+    }
+    func contactListServiceManager(serviceManger: ContactListServiceManager, didFetchContactDetail data: ContactDetailModel?){
+
+        DispatchQueue.main.async(execute: { () -> Void in
+            let vc = UIStoryboard.init(name: "Contact", bundle: Bundle.main).instantiateViewController(withIdentifier: "ContactDetailViewController") as? ContactDetailViewController
+            
+            self.navigationController?.pushViewController(vc!, animated: true)
+            vc?.configContactDetail(contactDetail: data)
+        })
+        
+        
+    }
+}
+
+extension ContactListViewController:ContactListViewDelegate{
+    func contactListView(_ view: ContactListView, didSelectContact contact:ContactsModel){
+        serviceManager.getContactDetail(contact: contact)
+    }
 }

@@ -25,4 +25,9 @@ class ContactListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func updateCellData(contact:ContactsModel) {
+        self.avatarImageView.imageFromServerURL(urlString: contact.profile_pic ?? "")
+        self.nameLabel.text = "\(contact.first_name ?? "") \(contact.last_name ?? "")"
+        self.favouriteButton.isSelected = contact.favorite ?? false
+    }
 }

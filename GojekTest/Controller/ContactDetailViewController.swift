@@ -10,13 +10,33 @@ import UIKit
 
 class ContactDetailViewController: UIViewController {
 
+    private var contactDetailView : ContactDetailView?
+    private let serviceManager = ContactDetailServiceManager()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        contactDetailView = self.view as? ContactDetailView
+        contactDetailView?.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
 
+    func configContactDetail(contactDetail:ContactDetailModel?) {
+        
+        guard contactDetail != nil else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            self.contactDetailView?.updateContactDetail(contactDetail: contactDetail!)
+        }
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -27,4 +47,9 @@ class ContactDetailViewController: UIViewController {
     }
     */
 
+}
+extension ContactDetailViewController:ContactDetailViewDelegate {
+    func contactDetailView(_ view: ContactDetailView, didSelectContact contact:ContactsModel){
+        
+    }
 }
