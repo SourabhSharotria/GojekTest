@@ -134,6 +134,7 @@
                             </view>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="115" id="22S-l2-OSs"/>
                             <constraint firstItem="hsT-If-ekr" firstAttribute="height" secondItem="Ocg-RD-Lpw" secondAttribute="height" id="Ar2-J4-jdS"/>
                             <constraint firstItem="sdA-a0-1Pe" firstAttribute="width" secondItem="Ocg-RD-Lpw" secondAttribute="width" id="Gft-Ie-ymq"/>
                             <constraint firstItem="k2r-hA-H6D" firstAttribute="width" secondItem="Ocg-RD-Lpw" secondAttribute="width" id="TYW-Ur-SaF"/>
@@ -152,9 +153,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="callBgView" destination="k2r-hA-H6D" id="RSJ-r0-0H2"/>
                 <outlet property="callButton" destination="M4C-Up-azf" id="400-k7-Jfq"/>
+                <outlet property="emailBgView" destination="hsT-If-ekr" id="oT7-eM-4yl"/>
                 <outlet property="emailButton" destination="Ubb-T2-W3k" id="dfc-wo-cmu"/>
+                <outlet property="favBgView" destination="sdA-a0-1Pe" id="hjC-gz-1Uk"/>
                 <outlet property="favouriteButton" destination="mas-pP-Qcb" id="zRU-8N-TJJ"/>
+                <outlet property="messageBgView" destination="Ocg-RD-Lpw" id="7es-Rt-maD"/>
                 <outlet property="messageButton" destination="lQ1-ab-NTd" id="ucJ-Xc-vtZ"/>
             </connections>
             <point key="canvasLocation" x="183.33333333333334" y="149.33035714285714"/>

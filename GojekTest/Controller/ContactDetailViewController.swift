@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class ContactDetailViewController: UIViewController {
 
@@ -35,7 +36,6 @@ class ContactDetailViewController: UIViewController {
         DispatchQueue.main.async {
             self.contactDetailView?.updateContactDetail(contactDetail: contactDetail!)
         }
-        
     }
     /*
     // MARK: - Navigation
@@ -49,7 +49,72 @@ class ContactDetailViewController: UIViewController {
 
 }
 extension ContactDetailViewController:ContactDetailViewDelegate {
-    func contactDetailView(_ view: ContactDetailView, didSelectContact contact:ContactsModel){
-        
+    func contactDetailView(_ view: ContactDetailView, editContact contact: ContactDetailModel) {
+        DispatchQueue.main.async(execute: { () -> Void in
+            let vc = UIStoryboard.init(name: "Contact", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditContactViewController") as? EditContactViewController
+            
+            self.navigationController?.pushViewController(vc!, animated: true)
+            vc?.configContactDetail(contactDetail: contact)
+        })
+    }
+    
+    func contactDetailView(_ view: ContactDetailView, didSelectCall phoneNumber: String) {
+        if let phoneCallURL = URL(string: "telprompt://\(phoneNumber)") {
+
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                application.open(phoneCallURL, options: [:], completionHandler: nil)
+            }
+            else {
+                Helper.showAlert(title: "Error", subtitle: "Unable to make call")
+            }
+        }
+    }
+    
+    func contactDetailView(_ view: ContactDetailView, didSelectMessage phoneNumber: String) {
+        if MFMessageComposeViewController.canSendText() {
+            let composeVC = MFMessageComposeViewController()
+            composeVC.messageComposeDelegate = self
+
+            composeVC.recipients = [phoneNumber]
+            composeVC.body = ""
+            
+            self.present(composeVC, animated: true, completion: nil)
+        }
+        else {
+            Helper.showAlert(title: "Error", subtitle: "Unable to send message")
+        }
+    }
+    
+    func contactDetailView(_ view: ContactDetailView, didSelectEmail email: String) {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([email])
+            mail.setMessageBody("", isHTML: true)
+
+            present(mail, animated: true)
+        } else {
+            Helper.showAlert(title: "Error", subtitle: "Unable to send email")
+        }
+    }
+    
+    func contactDetailView(_ view: ContactDetailView, didSelectFavourite contact: ContactDetailModel) {
+        self.serviceManager.updateFavourite(contact: contact)
+    }
+    
+    
+}
+
+extension ContactDetailViewController:MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
+
+extension ContactDetailViewController:MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+}
+

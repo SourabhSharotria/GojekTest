@@ -10,6 +10,7 @@ import UIKit
 
 protocol ContactListViewDelegate:class {
     func contactListView(_ view: ContactListView, didSelectContact contact:ContactsModel)
+    func contactListView(addContact view: ContactListView)
 }
 
 class ContactListView: UIView {
@@ -24,18 +25,32 @@ class ContactListView: UIView {
         // Drawing code
     }
     */
-    
+     
     override func awakeFromNib() {
+        self.configNavBarButton()
         self.configTableView()
     }
     
     private func configTableView() {
         
-        self.contactListTableView.estimatedRowHeight = 300.0
+        self.contactListTableView.backgroundColor = #colorLiteral(red: 0.9489166141, green: 0.9490789771, blue: 0.9489063621, alpha: 1)
+        self.contactListTableView.estimatedRowHeight = 80.0
         self.contactListTableView.rowHeight = UITableView.automaticDimension
         self.contactListTableView.sectionIndexColor = .gray
         
         self.contactListTableView.registerCell(ContactListTableViewCell.self)
+    }
+    
+    private func configNavBarButton() {
+        self.getViewController()!.navigationItem.rightBarButtonItem = nil
+        let backButton = UIBarButtonItem(image: nil, style: .plain, target: self, action:#selector(addContactAction))
+        backButton.title = "Add"
+        // backButton.setBackgroundImage(UIImage(named: ""), for: <#T##UIControl.State#>, barMetrics: <#T##UIBarMetrics#>)
+        self.getViewController()!.navigationItem.rightBarButtonItem = backButton
+    }
+    
+    @objc private func addContactAction(){
+        delegate?.contactListView(addContact: self)
     }
     
     func updateSections(contacts:[ContactsModel]?) {
@@ -47,7 +62,7 @@ class ContactListView: UIView {
         let groupedDictionary = Dictionary(grouping: (contacts!.map({$0})), by: {String(($0.first_name?.uppercased().prefix(1))!)})
                 
         let keys = groupedDictionary.keys.sorted()
-        sectionDetail.removeAll()
+//        sectionDetail.removeAll()
         
         sectionDetail = keys.map({Section(letter: $0, contacts: groupedDictionary[$0]!)})
         
@@ -89,11 +104,13 @@ extension ContactListView:UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = UIView.init(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
-        let lblHeader = UILabel.init(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+        let headerView = UIView.init(frame: CGRect(x: 0, y: -20, width: tableView.bounds.size.width, height: 40))
+        headerView.backgroundColor = #colorLiteral(red: 0.9489166141, green: 0.9490789771, blue: 0.9489063621, alpha: 1)
         
+        let lblHeader = UILabel.init(frame: CGRect(x: 20, y: -20, width: tableView.bounds.size.width, height: 40))
+        lblHeader.backgroundColor = #colorLiteral(red: 0.9489166141, green: 0.9490789771, blue: 0.9489063621, alpha: 1)
         lblHeader.text = "\(sectionDetail[section].letter)"
-        lblHeader.font = UIFont.systemFont(ofSize: 15)
+        lblHeader.font = UIFont.boldSystemFont(ofSize: 15)
         lblHeader.textColor = .black
         headerView.addSubview(lblHeader)
         return headerView
@@ -108,6 +125,9 @@ extension ContactListView:UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 20
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
     }
 }

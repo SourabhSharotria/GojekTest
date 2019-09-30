@@ -9,40 +9,57 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditContactImageTableViewCell" rowHeight="90" id="i1g-Qw-6vo" customClass="EditContactImageTableViewCell" customModule="GojekTest" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditContactImageTableViewCell" rowHeight="127" id="i1g-Qw-6vo" customClass="EditContactImageTableViewCell" customModule="GojekTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="312" height="127"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i1g-Qw-6vo" id="PWd-1i-DqZ">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                <rect key="frame" x="0.0" y="0.0" width="312" height="127"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_photo" translatesAutoresizingMaskIntoConstraints="NO" id="l4V-pc-Ofn">
-                        <rect key="frame" x="123" y="8" width="74" height="74"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVU-ae-XEA">
+                        <rect key="frame" x="0.0" y="0.0" width="512" height="227"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_photo" translatesAutoresizingMaskIntoConstraints="NO" id="l4V-pc-Ofn">
+                        <rect key="frame" x="119" y="20" width="74" height="74"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="l4V-pc-Ofn" secondAttribute="height" multiplier="1:1" id="fFp-nD-O1P"/>
+                            <constraint firstAttribute="height" constant="74" id="xRZ-IR-AIw"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gh-TK-yaa">
-                        <rect key="frame" x="176.5" y="49" width="41" height="41"/>
+                        <rect key="frame" x="172.5" y="73.5" width="41" height="41"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="41" id="0ih-5I-2o0"/>
                             <constraint firstAttribute="width" secondItem="4gh-TK-yaa" secondAttribute="height" multiplier="1:1" id="uLp-Ju-dBZ"/>
                         </constraints>
                         <state key="normal" image="camera_button"/>
+                        <connections>
+                            <action selector="editClicked:" destination="i1g-Qw-6vo" eventType="touchUpInside" id="n51-WX-IZt"/>
+                        </connections>
                     </button>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="l4V-pc-Ofn" firstAttribute="top" secondItem="PWd-1i-DqZ" secondAttribute="top" constant="8" id="1Ct-WK-HVH"/>
+                    <constraint firstItem="l4V-pc-Ofn" firstAttribute="top" secondItem="PWd-1i-DqZ" secondAttribute="top" constant="20" id="1Ct-WK-HVH"/>
+                    <constraint firstAttribute="bottom" secondItem="aVU-ae-XEA" secondAttribute="bottom" constant="-100" id="27b-nt-fKK"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4gh-TK-yaa" secondAttribute="bottom" constant="12.5" id="OVh-Bg-3Uu"/>
+                    <constraint firstItem="4gh-TK-yaa" firstAttribute="centerY" secondItem="l4V-pc-Ofn" secondAttribute="bottom" id="Pgk-ZI-S3y"/>
+                    <constraint firstItem="aVU-ae-XEA" firstAttribute="leading" secondItem="PWd-1i-DqZ" secondAttribute="leading" id="Vn1-J0-geM"/>
+                    <constraint firstItem="aVU-ae-XEA" firstAttribute="top" secondItem="PWd-1i-DqZ" secondAttribute="top" id="Vqt-CP-USS"/>
                     <constraint firstItem="4gh-TK-yaa" firstAttribute="centerX" secondItem="l4V-pc-Ofn" secondAttribute="trailing" id="bPG-Wt-6RP"/>
                     <constraint firstItem="l4V-pc-Ofn" firstAttribute="centerX" secondItem="PWd-1i-DqZ" secondAttribute="centerX" id="geZ-Hy-aHQ"/>
-                    <constraint firstAttribute="bottom" secondItem="l4V-pc-Ofn" secondAttribute="bottom" constant="8" id="hRJ-t5-pq8"/>
-                    <constraint firstAttribute="bottom" secondItem="4gh-TK-yaa" secondAttribute="bottom" id="hce-mL-gD5"/>
+                    <constraint firstAttribute="trailing" secondItem="aVU-ae-XEA" secondAttribute="trailing" constant="-200" id="gzp-gf-RFI"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="tdF-PT-uxM"/>
             <connections>
                 <outlet property="avatarImageView" destination="l4V-pc-Ofn" id="Ps1-Ju-kNg"/>
+                <outlet property="editButton" destination="4gh-TK-yaa" id="uc0-6H-eSg"/>
+                <outlet property="gradientView" destination="aVU-ae-XEA" id="se2-LS-zib"/>
             </connections>
-            <point key="canvasLocation" x="179.71014492753625" y="69.642857142857139"/>
+            <point key="canvasLocation" x="173.91304347826087" y="82.03125"/>
         </tableViewCell>
     </objects>
     <resources>

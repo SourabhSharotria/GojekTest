@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+let imageCache = NSCache<NSString, UIImage>()
+
 class Helper{
     static func showAlert(title:String, subtitle:String){
         DispatchQueue.main.async(execute: {

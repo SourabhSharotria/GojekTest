@@ -17,7 +17,7 @@ class ContactListServiceManager {
     weak var delegate: ContactListServiceManagerDelegate?
     
     func getContactList(){
-        NetworkManager.shareInstance.callData(requestType: .get, jsonInputData: nil, path: "/contacts.json") { (responseData) in
+        NetworkManager.shareInstance.callData(requestType: .get, params: nil, path: "/contacts.json") { (responseData) in
              
             do {
                 let decoder = JSONDecoder()
@@ -31,7 +31,7 @@ class ContactListServiceManager {
     }
     
     func getContactDetail(contact:ContactsModel){
-        NetworkManager.shareInstance.callData(requestType: .get, jsonInputData: nil, path: "/contacts/\(contact.id!).json") { (responseData) in
+        NetworkManager.shareInstance.callData(requestType: .get, params: nil, path: "/contacts/\(contact.id!).json") { (responseData) in
              
             do {
                 let decoder = JSONDecoder()

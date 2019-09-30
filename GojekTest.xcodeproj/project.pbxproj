@@ -24,6 +24,8 @@
 		210A150F233E4EF5002C3DF4 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A150E233E4EF5002C3DF4 /* ImageViewExtension.swift */; };
 		210A1515233E5EEE002C3DF4 /* ContactListServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A1514233E5EEE002C3DF4 /* ContactListServiceManager.swift */; };
 		210A1517233E5F03002C3DF4 /* ContactDetailServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A1516233E5F03002C3DF4 /* ContactDetailServiceManager.swift */; };
+		210FCE7D234084A200C46325 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210FCE7C234084A200C46325 /* DataExtension.swift */; };
+		210FCE7F2340AE4500C46325 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210FCE7E2340AE4500C46325 /* ViewExtension.swift */; };
 		21246541233F603C0082B58F /* ContactStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21246540233F603C0082B58F /* ContactStructs.swift */; };
 		21246543233F61E00082B58F /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21246542233F61E00082B58F /* EditContactViewController.swift */; };
 		21246545233F62200082B58F /* EditContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21246544233F62200082B58F /* EditContactView.swift */; };
@@ -60,6 +62,8 @@
 		210A150E233E4EF5002C3DF4 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		210A1514233E5EEE002C3DF4 /* ContactListServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListServiceManager.swift; sourceTree = "<group>"; };
 		210A1516233E5F03002C3DF4 /* ContactDetailServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailServiceManager.swift; sourceTree = "<group>"; };
+		210FCE7C234084A200C46325 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
+		210FCE7E2340AE4500C46325 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		21246540233F603C0082B58F /* ContactStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactStructs.swift; sourceTree = "<group>"; };
 		21246542233F61E00082B58F /* EditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
 		21246544233F62200082B58F /* EditContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactView.swift; sourceTree = "<group>"; };
@@ -189,7 +193,9 @@
 			isa = PBXGroup;
 			children = (
 				210A150E233E4EF5002C3DF4 /* ImageViewExtension.swift */,
+				210FCE7E2340AE4500C46325 /* ViewExtension.swift */,
 				2124655B233FBBD10082B58F /* TableViewExtension.swift */,
+				210FCE7C234084A200C46325 /* DataExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -318,6 +324,7 @@
 				210A14FF233E4B83002C3DF4 /* ContactListView.swift in Sources */,
 				210A14F8233E4A78002C3DF4 /* ContactListViewController.swift in Sources */,
 				210A14E1233E49CB002C3DF4 /* AppDelegate.swift in Sources */,
+				210FCE7F2340AE4500C46325 /* ViewExtension.swift in Sources */,
 				21246541233F603C0082B58F /* ContactStructs.swift in Sources */,
 				21246543233F61E00082B58F /* EditContactViewController.swift in Sources */,
 				210A1501233E4B9F002C3DF4 /* ContactDetailView.swift in Sources */,
@@ -327,6 +334,7 @@
 				21246545233F62200082B58F /* EditContactView.swift in Sources */,
 				210A1517233E5F03002C3DF4 /* ContactDetailServiceManager.swift in Sources */,
 				210A150B233E4E50002C3DF4 /* ContactListTableViewCell.swift in Sources */,
+				210FCE7D234084A200C46325 /* DataExtension.swift in Sources */,
 				210A1507233E4CD6002C3DF4 /* Helper.swift in Sources */,
 				21246552233F6C300082B58F /* ContactDescriptionTableViewCell.swift in Sources */,
 				210A14FA233E4A92002C3DF4 /* ContactDetailViewController.swift in Sources */,
@@ -419,6 +427,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -472,6 +481,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

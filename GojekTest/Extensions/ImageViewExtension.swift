@@ -10,19 +10,33 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    
-public func imageFromServerURL(urlString: String) {
-    self.image = nil
-    URLSession.shared.dataTask(with: URL(fileURLWithPath: urlString), completionHandler: { (data, response, error) -> Void in
 
-        if error != nil {
-            print(error as Any)
+    func imageFromServerURL(_ URLString: String, placeHolder: UIImage?) {
+
+        self.image = nil
+        if let cachedImage = imageCache.object(forKey: NSString(string: URLString)) {
+            self.image = cachedImage
             return
         }
-        DispatchQueue.main.async(execute: { () -> Void in
-            let image = UIImage(data: data!)
-            self.image = image
-        })
 
-    }).resume()
-}}
+        if let url = URL(string: URLString) {
+            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+
+                if error != nil {
+                    DispatchQueue.main.async {
+                        self.image = placeHolder
+                    }
+                    return
+                }
+                DispatchQueue.main.async {
+                    if let data = data {
+                        if let downloadedImage = UIImage(data: data) {
+                            imageCache.setObject(downloadedImage, forKey: NSString(string: URLString))
+                            self.image = downloadedImage
+                        }
+                    }
+                }
+            }).resume()
+        }
+    }
+}

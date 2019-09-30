@@ -15,5 +15,115 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE2B75B4-4AD5-43F2-BA55-FA4AF61B5776"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GojekTest/Model/ControllerServiceManagers/EditContactServiceManger.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB26EC23-48A0-452F-9E17-3CC03A55A7BD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GojekTest/WebServiceManager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "createBody(with:filePathKey:paths:boundary:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BC80B23F-8814-45E8-AE7D-D60515E5C6D9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GojekTest/WebServiceManager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "createRequest(requestType:params:path:filePath:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BC80B23F-8814-45E8-AE7D-D60515E5C6D9 - 98c099e58c72c350"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GojekTest.NetworkManager.createRequest(requestType: GojekTest.NetworkManager.ReqestType, params: Swift.Dictionary&lt;Swift.String, Any&gt;, path: Swift.String, filePath: Swift.String, completion: (Foundation.Data) -&gt; ()) -&gt; ()"
+                  moduleName = "GojekTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sourav/Documents/Developer/GojekTest/GojekTest/WebServiceManager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "1793">
+               </Location>
+               <Location
+                  uuid = "BC80B23F-8814-45E8-AE7D-D60515E5C6D9 - 9806dea9d9803309"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GojekTest.NetworkManager.createRequest(requestType: GojekTest.NetworkManager.ReqestType, params: Swift.Dictionary&lt;Swift.String, Any&gt;, path: Swift.String, filePath: Swift.String, completion: (Foundation.Data) -&gt; ()) -&gt; ()"
+                  moduleName = "GojekTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sourav/Documents/Developer/GojekTest/GojekTest/WebServiceManager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "210">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D03CFB58-E96C-495C-9F22-514229F0D064"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GojekTest/WebServiceManager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "createRequest(requestType:params:path:filePath:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F396DA1E-091A-47F9-9255-EEF26A5FD4AF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GojekTest/WebServiceManager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "createBody(with:filePathKey:paths:boundary:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

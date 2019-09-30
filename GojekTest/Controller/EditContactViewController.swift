@@ -12,7 +12,9 @@ class EditContactViewController: UIViewController {
 
     private var editContactView : EditContactView?
     private let serviceManager = EditContactServiceManger()
-        
+    var imagePicker = UIImagePickerController()
+    var selectedFilePath = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +26,26 @@ class EditContactViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func configContactDetail(contactDetail:ContactDetailModel?) {
+        
+        DispatchQueue.main.async {
+            self.editContactView?.updateContactDetail(contactDetail: contactDetail)
+        }
+    }
+    
+    private func selectLibraryImage() {
 
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            imagePicker.sourceType = .camera
+        }
+        else {
+            imagePicker.sourceType = .photoLibrary
+        }
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -38,15 +59,23 @@ class EditContactViewController: UIViewController {
 }
 
 extension EditContactViewController:EditContactViewDelegate {
-    func editContactView(_ view: EditContactView, addContact contact:ContactsModel){
+    func editContactView(_ view: EditContactView, addContact contact:ContactDetailModel){
         serviceManager.addContact(contact: contact)
     }
     
-    func editContactView(_ view: EditContactView, updateContact contact:ContactsModel){
+    func editContactView(_ view: EditContactView, updateContact contact:ContactDetailModel){
         serviceManager.updateContact(contact: contact)
     }
+    
+    func editContactView(_ view: EditContactView, deleteContact contact:ContactDetailModel){
+        serviceManager.deleteContact(contact: contact)
+    }
+    
+    func editContactView(selectLibraryImage view: EditContactView){
+        self.selectLibraryImage()
+    }
 }
-
+ 
 extension EditContactViewController:EditContactServiceManagerDelegate{
     
     func editContactServiceManager(serviceManger: EditContactServiceManger, didAddContact contact: ContactDetailModel?) {
@@ -57,3 +86,30 @@ extension EditContactViewController:EditContactServiceManagerDelegate{
         
     }
 }
+
+extension EditContactViewController:UINavigationControllerDelegate,UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let fileManager = FileManager.default
+        let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
+        let imagePath = documentsPath?.appendingPathComponent("image.jpg")
+
+        // extract image from the picker and save it
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+
+            let imageData = pickedImage.jpegData(compressionQuality: 0.75)
+            try! imageData?.write(to: imagePath!)
+            
+            self.editContactView?.updateContactProfile(filePath: imagePath?.path)
+        }
+        
+        self.dismiss(animated: true, completion: { () -> Void in
+
+        })
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
