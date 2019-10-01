@@ -77,7 +77,6 @@ class ContactListView: UIView {
         let groupedDictionary = Dictionary(grouping: (contacts!.map({$0})), by: {String(($0.first_name?.uppercased().prefix(1))!)})
                 
         let keys = groupedDictionary.keys.sorted()
-//        sectionDetail.removeAll()
         
         sectionDetail = keys.map({Section(letter: $0, contacts: groupedDictionary[$0]!)})
         

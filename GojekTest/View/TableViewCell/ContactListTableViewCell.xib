@@ -41,11 +41,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4z-0R-oZD">
-                        <rect key="frame" x="343" y="21" width="30" height="22"/>
+                        <rect key="frame" x="343" y="15" width="30" height="34"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="Lt1-cl-16X"/>
                         </constraints>
-                        <state key="normal" image="home_favourite"/>
+                        <state key="selected" image="home_favourite"/>
                     </button>
                 </subviews>
                 <color key="backgroundColor" red="0.97647058823529409" green="0.97653168439865112" blue="0.97635418176651001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

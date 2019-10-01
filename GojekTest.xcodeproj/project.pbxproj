@@ -112,12 +112,10 @@
 		210A14DF233E49CB002C3DF4 /* GojekTest */ = {
 			isa = PBXGroup;
 			children = (
-				210A1510233E527C002C3DF4 /* Extensions */,
-				210A1505233E4CC9002C3DF4 /* Utilities */,
-				210A1502233E4C55002C3DF4 /* WebServiceManager */,
-				210A14FD233E4B49002C3DF4 /* View */,
 				210A14FC233E4B3E002C3DF4 /* Model */,
+				210A14FD233E4B49002C3DF4 /* View */,
 				210A14FB233E4B2F002C3DF4 /* Controller */,
+				210A1505233E4CC9002C3DF4 /* Utilities */,
 				210A14E0233E49CB002C3DF4 /* AppDelegate.swift */,
 				210A14E2233E49CB002C3DF4 /* SceneDelegate.swift */,
 				210A14EC233E49CB002C3DF4 /* Assets.xcassets */,
@@ -141,6 +139,7 @@
 		210A14FC233E4B3E002C3DF4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				210A1502233E4C55002C3DF4 /* WebServiceManager */,
 				21246558233F7D950082B58F /* DataModel */,
 				2124653F233F601F0082B58F /* Strucutres */,
 				210A1513233E5E96002C3DF4 /* ControllerServiceManagers */,
@@ -169,6 +168,7 @@
 		210A1505233E4CC9002C3DF4 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				210A1510233E527C002C3DF4 /* Extensions */,
 				210A1506233E4CD6002C3DF4 /* Helper.swift */,
 				210DC6F82343458400F28B40 /* Validator.swift */,
 			);
