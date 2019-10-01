@@ -80,7 +80,6 @@ extension ContactListView:UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        print("\(indexPath.section) \(indexPath.row)")
         let contactDetail = sectionDetail[indexPath.section].contacts[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ContactListTableViewCell

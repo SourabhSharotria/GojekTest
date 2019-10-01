@@ -20,7 +20,6 @@ class EditContactView: UIView {
     @IBOutlet weak var editContactTableView: UITableView!
     var contactDetail:ContactDetailModel!
     var contactTableArray = [ContactDetail]()
-    var isEditing = false
     
     weak var delegate:EditContactViewDelegate?
     
@@ -52,7 +51,7 @@ class EditContactView: UIView {
             delegate?.editContactView(self, deleteContact: self.contactDetail)
             return
         }
-        else if isEditing {
+        else if self.contactDetail.id != nil {
             delegate?.editContactView(self, updateContact: self.contactDetail)
         }
         else {
@@ -63,7 +62,7 @@ class EditContactView: UIView {
     func updateContactDetail(contactDetail:ContactDetailModel?) {
         
         if (contactDetail != nil) {
-            self.isEditing = true
+            self.contactDetail = ContactDetailModel()
         }
         
         self.contactDetail = contactDetail

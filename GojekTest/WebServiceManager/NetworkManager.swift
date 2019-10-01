@@ -57,25 +57,25 @@ class NetworkManager
             }
             
             URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
-                
-                guard let dataResponse = data,
-                    error == nil else {
-                        print(error?.localizedDescription ?? "Response Error")
-                        return }
-                do{
-
-                    let jsonResponse = try JSONSerialization.jsonObject(with:
-                        dataResponse, options: [])
-                    print(jsonResponse) //Response result
-                } catch let parsingError {
-                    print("Error", parsingError)
-                }
             
                 do{
-                    guard let data = data else{
+                    guard let dataResponse = data else{
                         throw JSONError.NoData
                     }
-                    completion(data)
+                    
+                    let jsonResponse = try JSONSerialization.jsonObject(with:
+                    dataResponse, options: [])
+                    
+                    guard let json = (jsonResponse as? [String:Any]) else {
+                        return
+                    }
+                    
+                    if let error = json["errors"] as? [String] {
+                        Helper.showAlert(title: "Error", subtitle: error.last ?? "Something went wrong")
+                    }
+                    else {
+                        completion(dataResponse)
+                    }
                 }
                 catch let error as JSONError{
                     Helper.showAlert(title: "Error", subtitle: error.localizedDescription)
@@ -85,16 +85,14 @@ class NetworkManager
                     Helper.showAlert(title: "Error", subtitle: error.localizedDescription)
                     return
                 }
-                }.resume()
+            }.resume()
         }else{
             Helper.showAlert(title: "Error", subtitle: "Please check your internet connection")
             return
         }
     }
     
-    
-    
-    func createRequest(requestType: ReqestType, params:[String:Any], path:String, filePath:String, completion: @escaping (_ result: Data) -> Void) {
+    func uploadFileData(requestType: ReqestType, params: [String:Any]?, path:String, filePath:String, completion: @escaping (_ result: Data) -> Void) {
 
         let boundary = generateBoundaryString()
 
@@ -120,24 +118,24 @@ class NetworkManager
 
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             
-            guard let dataResponse = data,
-                error == nil else {
-                    print(error?.localizedDescription ?? "Response Error")
-                    return }
             do{
-                //here dataResponse received from a network request
-                let jsonResponse = try JSONSerialization.jsonObject(with:
-                    dataResponse, options: [])
-                print(jsonResponse) //Response result
-            } catch let parsingError {
-                print("Error", parsingError)
-            }
-        
-            do{
-                guard let data = data else{
+                guard let dataResponse = data else{
                     throw JSONError.NoData
                 }
-                completion(data)
+                
+                let jsonResponse = try JSONSerialization.jsonObject(with:
+                dataResponse, options: [])
+                
+                guard let json = (jsonResponse as? [String:Any]) else {
+                    return
+                }
+                
+                if let error = json["errors"] as? [String] {
+                    Helper.showAlert(title: "Error", subtitle: error.last ?? "Something went wrong")
+                }
+                else {
+                    completion(dataResponse)
+                }
             }
             catch let error as JSONError{
                 Helper.showAlert(title: "Error", subtitle: error.localizedDescription)
@@ -154,12 +152,20 @@ class NetworkManager
         var body = Data()
         
         if parameters != nil {
-    
-            let jsonData = try! JSONSerialization.data(withJSONObject: parameters!, options: [.prettyPrinted])
-            body.append("--\(boundary)\r\n")
-            body.append("Content-Type: application/json\r\n\r\n")
-            body.append(jsonData)
+            for (key,value) in parameters! {
+              if value is Dictionary<String, Any> {
+                for (objKey,ObjValue) in value as! Dictionary<String, Any> {
+                  body.append("\r\n--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
+                  body.append("Content-Disposition: form-data; name=\"\(key)[\(objKey)]\"\r\n\r\n\(ObjValue)".data(using: String.Encoding.utf8)!)
+                }
+              } else {
+                body.append("\r\n--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
+                body.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n\(value)".data(using: String.Encoding.utf8)!)
+              }
+            }
         }
+        
+        body.append("\r\n")
 
         for path in paths {
             
@@ -180,7 +186,6 @@ class NetworkManager
         }
 
         body.append("--\(boundary)--\r\n")
-        print(String(decoding: body, as: UTF8.self))
         return body
     }
     

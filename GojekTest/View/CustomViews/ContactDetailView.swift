@@ -37,7 +37,6 @@ class ContactDetailView: UIView {
         self.getViewController()!.navigationItem.rightBarButtonItem = nil
         let backButton = UIBarButtonItem(image: nil, style: .plain, target: self, action:#selector(editContactAction))
         backButton.title = "Edit"
-        // backButton.setBackgroundImage(UIImage(named: ""), for: T##UIControl.State, barMetrics: <#T##UIBarMetrics#>)
         self.getViewController()!.navigationItem.rightBarButtonItem = backButton
     }
     

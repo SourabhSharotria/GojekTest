@@ -25,14 +25,13 @@ class ContactListServiceManager {
                 self.delegate?.contactListServiceManager(serviceManger: self, didFetchingContacts: contacts)
                 
             } catch let err {
-                print("Err", err)
+                print("Error", err)
             }
         }
     }
     
     func getContactDetail(contact:ContactsModel){
         NetworkManager.shareInstance.callData(requestType: .get, params: nil, path: "/contacts/\(contact.id!).json") { (responseData) in
-             
             do {
                 let decoder = JSONDecoder()
                 let contactDetail = try decoder.decode(ContactDetailModel.self, from: responseData)

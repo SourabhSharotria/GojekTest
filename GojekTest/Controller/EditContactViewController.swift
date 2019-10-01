@@ -79,11 +79,18 @@ extension EditContactViewController:EditContactViewDelegate {
 extension EditContactViewController:EditContactServiceManagerDelegate{
     
     func editContactServiceManager(serviceManger: EditContactServiceManger, didAddContact contact: ContactDetailModel?) {
-        
+        self.configContactDetail(contactDetail: contact)
+        Helper.showAlert(title: "Success", subtitle: "Contact added successfully.")
     }
     
     func editContactServiceManager(serviceManger: EditContactServiceManger, didUpdateContact contact: ContactDetailModel?) {
-        
+        self.configContactDetail(contactDetail: contact)
+        Helper.showAlert(title: "Success", subtitle: "Contact updated successfully.")
+    }
+    
+    func editContactServiceManager(serviceManger: EditContactServiceManger, didDeleteContact contact: ContactDetailModel?){
+        Helper.showAlert(title: "Success", subtitle: "Contact deleted successfully.")
+        self.configContactDetail(contactDetail: nil)
     }
 }
 
@@ -97,7 +104,7 @@ extension EditContactViewController:UINavigationControllerDelegate,UIImagePicker
         // extract image from the picker and save it
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
 
-            let imageData = pickedImage.jpegData(compressionQuality: 0.75)
+            let imageData = pickedImage.jpegData(compressionQuality: 0.25)
             try! imageData?.write(to: imagePath!)
             
             self.editContactView?.updateContactProfile(filePath: imagePath?.path)

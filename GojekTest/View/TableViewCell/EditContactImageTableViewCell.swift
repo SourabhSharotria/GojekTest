@@ -47,6 +47,11 @@ class EditContactImageTableViewCell: UITableViewCell {
             return
         }
         
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: contact.profile_pic ?? "") {
+            self.avatarImageView.image = UIImage(contentsOfFile: contact.profile_pic!)
+            return
+        }
         self.avatarImageView.imageFromServerURL(contact.profile_pic ?? "", placeHolder: #imageLiteral(resourceName: "placeholder_photo"))
     }
     
