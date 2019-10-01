@@ -11,6 +11,7 @@ import UIKit
 protocol ContactListViewDelegate:class {
     func contactListView(_ view: ContactListView, didSelectContact contact:ContactsModel)
     func contactListView(addContact view: ContactListView)
+    func contactListView(refreshContacts view: ContactListView)
 }
 
 class ContactListView: UIView {
@@ -18,6 +19,8 @@ class ContactListView: UIView {
     var sectionDetail = [Section]()
     @IBOutlet weak var contactListTableView: UITableView!
     weak var delegate:ContactListViewDelegate?
+    
+    var refreshControl = UIRefreshControl()
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -39,13 +42,21 @@ class ContactListView: UIView {
         self.contactListTableView.sectionIndexColor = .gray
         
         self.contactListTableView.registerCell(ContactListTableViewCell.self)
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        self.contactListTableView.addSubview(refreshControl)
+    }
+    
+    @objc private func refresh() {
+        
+        self.delegate?.contactListView(refreshContacts: self)
     }
     
     private func configNavBarButton() {
         self.getViewController()!.navigationItem.rightBarButtonItem = nil
         let backButton = UIBarButtonItem(image: nil, style: .plain, target: self, action:#selector(addContactAction))
         backButton.title = "Add"
-        // backButton.setBackgroundImage(UIImage(named: ""), for: <#T##UIControl.State#>, barMetrics: <#T##UIBarMetrics#>)
         self.getViewController()!.navigationItem.rightBarButtonItem = backButton
     }
     
@@ -54,6 +65,10 @@ class ContactListView: UIView {
     }
     
     func updateSections(contacts:[ContactsModel]?) {
+        
+        DispatchQueue.main.async {
+            self.refreshControl.endRefreshing()
+        }
         
         guard contacts != nil else {
             return

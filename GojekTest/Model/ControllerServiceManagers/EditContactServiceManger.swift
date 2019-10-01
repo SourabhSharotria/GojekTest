@@ -20,10 +20,10 @@ class EditContactServiceManger {
     
     func addContact(contact:ContactDetailModel){
         
-        let parameters = ["contact": ["first_name": contact.first_name ?? "harsh",
-        "last_name": contact.last_name ?? "parh",
-        "email":contact.email ?? "harsh@123.com",
-        "phone_number":contact.phone_number ?? "989842223244",
+        let parameters = ["contact": ["first_name": contact.first_name ?? "",
+        "last_name": contact.last_name ?? "",
+        "email":contact.email ?? "",
+        "phone_number":contact.phone_number ?? "",
         "favorite":contact.favorite ?? false]] as [String : Any]
                         
         NetworkManager.shareInstance.uploadFileData(requestType: .post, params: parameters, path: "/contacts.json", filePath: contact.profile_pic ?? "") { (responseData) in
@@ -61,7 +61,14 @@ class EditContactServiceManger {
     
     func deleteContact(contact:ContactDetailModel){
         
-        NetworkManager.shareInstance.callData(requestType: .delete, params: nil, path: "DELETE /contacts/\(contact.id!).json") { (responseData) in
+        let parameters = ["contact":["id": contact.id ?? "",
+        "first_name": contact.first_name ?? "",
+        "last_name": contact.last_name ?? "",
+        "email":contact.email ?? "",
+        "phone_number":contact.phone_number ?? "",
+        "favorite":contact.favorite ?? false]] as [String : Any]
+        
+        NetworkManager.shareInstance.callData(requestType: .delete, params: parameters, path: "/contacts/\(contact.id!).json") { (responseData) in
             do {
                 let decoder = JSONDecoder()
                 let contactDetail = try decoder.decode(ContactDetailModel.self, from: responseData)

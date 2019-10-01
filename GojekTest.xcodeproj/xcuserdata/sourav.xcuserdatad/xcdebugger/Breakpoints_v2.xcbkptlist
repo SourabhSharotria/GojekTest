@@ -25,8 +25,8 @@
             filePath = "GojekTest/Model/ControllerServiceManagers/EditContactServiceManger.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "deleteContact(contact:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -34,17 +34,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "06EB7283-0CED-4E95-9DC1-6E9545CD1921"
+            uuid = "9F17DC36-22C9-46B6-A73F-B11334CBA2AF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GojekTest/Model/ControllerServiceManagers/EditContactServiceManger.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "updateContact(contact:)"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "deleteContact(contact:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9F17DC36-22C9-46B6-A73F-B11334CBA2AF - 2d8dd1474ad72931"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GojekTest.EditContactServiceManger.deleteContact(contact: GojekTest.ContactDetailModel) -&gt; ()"
+                  moduleName = "GojekTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sourav/Documents/Developer/GojekTest/GojekTest/Model/ControllerServiceManagers/EditContactServiceManger.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "2071">
+               </Location>
+               <Location
+                  uuid = "9F17DC36-22C9-46B6-A73F-B11334CBA2AF - 5c4d9c746590d7c2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.Data) -&gt; () in GojekTest.EditContactServiceManger.deleteContact(contact: GojekTest.ContactDetailModel) -&gt; ()"
+                  moduleName = "GojekTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sourav/Documents/Developer/GojekTest/GojekTest/Model/ControllerServiceManagers/EditContactServiceManger.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "159">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

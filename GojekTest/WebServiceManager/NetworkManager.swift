@@ -66,16 +66,12 @@ class NetworkManager
                     let jsonResponse = try JSONSerialization.jsonObject(with:
                     dataResponse, options: [])
                     
-                    guard let json = (jsonResponse as? [String:Any]) else {
+                    if let json = (jsonResponse as? [String:Any]), let error = json["errors"] as? [String] {
+                        Helper.showAlert(title: "Error", subtitle: error.last ?? "Something went wrong")
                         return
                     }
                     
-                    if let error = json["errors"] as? [String] {
-                        Helper.showAlert(title: "Error", subtitle: error.last ?? "Something went wrong")
-                    }
-                    else {
-                        completion(dataResponse)
-                    }
+                    completion(dataResponse)
                 }
                 catch let error as JSONError{
                     Helper.showAlert(title: "Error", subtitle: error.localizedDescription)
@@ -126,16 +122,12 @@ class NetworkManager
                 let jsonResponse = try JSONSerialization.jsonObject(with:
                 dataResponse, options: [])
                 
-                guard let json = (jsonResponse as? [String:Any]) else {
+                if let json = (jsonResponse as? [String:Any]), let error = json["errors"] as? [String] {
+                    Helper.showAlert(title: "Error", subtitle: error.last ?? "Something went wrong")
                     return
                 }
                 
-                if let error = json["errors"] as? [String] {
-                    Helper.showAlert(title: "Error", subtitle: error.last ?? "Something went wrong")
-                }
-                else {
-                    completion(dataResponse)
-                }
+                completion(dataResponse)
             }
             catch let error as JSONError{
                 Helper.showAlert(title: "Error", subtitle: error.localizedDescription)

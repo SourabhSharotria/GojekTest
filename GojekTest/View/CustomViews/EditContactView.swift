@@ -42,14 +42,22 @@ class EditContactView: UIView {
         self.getViewController()!.navigationItem.rightBarButtonItem = nil
         let backButton = UIBarButtonItem(image: nil, style: .plain, target: self, action:#selector(addContactAction))
         backButton.title = "Done"
-        // backButton.setBackgroundImage(UIImage(named: ""), for: <#T##UIControl.State#>, barMetrics: <#T##UIBarMetrics#>)
         self.getViewController()!.navigationItem.rightBarButtonItem = backButton
     }
     
     @objc private func addContactAction(){
-        if self.contactDetail.first_name == "" && self.contactDetail.last_name == "" && self.contactDetail.email == "" && self.contactDetail.phone_number == "" {
-            delegate?.editContactView(self, deleteContact: self.contactDetail)
-            return
+
+        if self.contactDetail.first_name?.trimmingCharacters(in: .whitespaces).count ?? 0 < 2 {
+            Helper.showAlert(title: "Error", subtitle: "First Name not valid")
+        }
+        else if self.contactDetail.last_name?.trimmingCharacters(in: .whitespaces).count ?? 0 < 2 {
+            Helper.showAlert(title: "Error", subtitle: "Last name not valid")
+        }
+        else if !isValidEmail(emailStr: self.contactDetail.email ?? "") {
+            Helper.showAlert(title: "Error", subtitle: "email not valid")
+        }
+        else if self.contactDetail.phone_number?.trimmingCharacters(in: .whitespaces).count ?? 0 < 10 {
+            Helper.showAlert(title: "Error", subtitle: "Phone number not valid")
         }
         else if self.contactDetail.id != nil {
             delegate?.editContactView(self, updateContact: self.contactDetail)
@@ -108,6 +116,10 @@ extension EditContactView:UITableViewDelegate, UITableViewDataSource {
         
         let contactDesc = contactTableArray[indexPath.row-1]
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ContactDescriptionTableViewCell
+        cell.descriptionTextField.keyboardType = .default
+        if indexPath.row == 3 {
+            cell.descriptionTextField.keyboardType = .phonePad
+        }
         cell.delegate = self
         cell.updateCellData(contact: self.contactDetail, contactDescription: contactDesc, isEditable: true)
         cell.selectionStyle = .none

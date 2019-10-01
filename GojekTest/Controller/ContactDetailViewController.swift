@@ -22,10 +22,6 @@ class ContactDetailViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
 
     func configContactDetail(contactDetail:ContactDetailModel?) {
         
@@ -101,9 +97,9 @@ extension ContactDetailViewController:ContactDetailViewDelegate {
     
     func contactDetailView(_ view: ContactDetailView, didSelectFavourite contact: ContactDetailModel) {
         self.serviceManager.updateFavourite(contact: contact)
+        
+        Helper.showAlert(title: "Success", subtitle: "Favourite updated successfully.")
     }
-    
-    
 }
 
 extension ContactDetailViewController:MFMessageComposeViewControllerDelegate {

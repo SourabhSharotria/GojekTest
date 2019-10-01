@@ -58,6 +58,11 @@ extension ContactListViewController:ContactListServiceManagerDelegate{
 }
 
 extension ContactListViewController:ContactListViewDelegate{
+    
+    func contactListView(refreshContacts view: ContactListView) {
+        self.getContactList()
+    }
+    
     func contactListView(addContact view: ContactListView) {
         DispatchQueue.main.async(execute: { () -> Void in
             let vc = UIStoryboard.init(name: "Contact", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditContactViewController") as? EditContactViewController
